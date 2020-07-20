@@ -28,3 +28,7 @@ _bad_ were books that are so unreadable I deemed them too much hassle for proces
 _processed_ is the processed data. These are the same text files as in _raw_, but each sentence is in it's own line and has a _<start>_ and _<end>_ tag. The result of the script *preprocess_nietzsche.py*.  
   
 _pre-cleanup_ is data in preparation for the second, manual cleaning stage (*clean_nietzsche.py*). This data is not finish and the script wasn't run. 
+
+
+## Language model
+The scripts _train_nietzsche.py_ and _test_nietzsche.py_ contain logic to train and test(empirically, no perplexity) a LM on the data. They need import from an unpublished project of mine which will be updatet in the future.
