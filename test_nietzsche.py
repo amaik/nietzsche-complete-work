@@ -2,10 +2,9 @@
 import pickle
 import os
 import argparse
-from pathlib import Path
 import tensorflow as tf
 
-from draft.models import models
+from draft.models import recurrent
 import draft.constants as constants
 
 
@@ -38,12 +37,12 @@ def main():
     tokenizer = pickle.load(open(tokenizer_path, 'rb'))
 
     if model_type == "lstm":
-        model = models.build_LSTM(vocab_size=vocab_size,
+        model = recurrent.build_LSTM(vocab_size=vocab_size,
                                   embedding_dim=constants.EMBEDDING_DIMENSION,
                                   rnn_units=constants.RNN_UNITS,
                                   batch_size=1)
     elif model_type == "gru":
-        model = models.build_GRU(vocab_size=vocab_size,
+        model = recurrent.build_GRU(vocab_size=vocab_size,
                                   embedding_dim=constants.EMBEDDING_DIMENSION,
                                   rnn_units=constants.RNN_UNITS,
                                   batch_size=1)

@@ -8,8 +8,7 @@ from pathlib import Path
 
 import draft.constants as constants
 import draft.preprocessing.tokenize as tk
-from draft.models import models
-
+from draft.models import recurrent
 
 def main():
     parser = argparse.ArgumentParser(description='Language model training script.')
@@ -78,12 +77,12 @@ def main():
     dataset = dataset.batch(constants.BATCH_SIZE, drop_remainder=True)
 
     if model_type == 'lstm':
-        model = models.build_LSTM(vocab_size=vocab_size,
+        model = recurrent.build_LSTM(vocab_size=vocab_size,
                                   embedding_dim=constants.EMBEDDING_DIMENSION,
                                   rnn_units=constants.RNN_UNITS,
                                   batch_size=constants.BATCH_SIZE)
     elif model_type == 'gru':
-        model = models.build_GRU(vocab_size=vocab_size,
+        model = recurrent.build_GRU(vocab_size=vocab_size,
                                  embedding_dim=constants.EMBEDDING_DIMENSION,
                                  rnn_units=constants.RNN_UNITS,
                                  batch_size=constants.BATCH_SIZE)
