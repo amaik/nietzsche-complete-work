@@ -17,7 +17,7 @@ def main():
     parser.add_argument('-tp', '--target-path', type=str,
                         help='Target path where the model checkpoints and vocabulary size will be stored')
     parser.add_argument('-m', '--model', type=str, default='lstm',
-                        help='The type of model to train. Valid arguements are "gru" an "lstm". Defaults to "lstm"')
+                        help='The type of model to train. Valid arguments are "gru" an "lstm". Defaults to "lstm"')
     parser.add_argument('-e', '--epochs', type=int, default=constants.EPOCHS,
                         help=f'The number of epochs used for training, defaults to {constants.EPOCHS}')
     parser.add_argument('-t', '--tiny', action='store_true',
